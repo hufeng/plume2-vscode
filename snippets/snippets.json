@@ -18,7 +18,7 @@
     "body": [
       "import {Actor, Action, IMap} from 'plume2'",
       "",
-      "export default class ${1:actorName} extends Actor {",
+      "export default class $1 extends Actor {",
       "  defaultState() {",
       "    return {$2}",
       "  }",
@@ -31,8 +31,6 @@
     "body": [
       "import {Store, IOptions} from 'plume2'",
       "",
-      "${1:actor}",
-      "",
       "export default class AppStore extends Store {",
       "  constructor(props: IOptions) {",
       "     super(props)",
@@ -41,7 +39,9 @@
       "     }",
       "  }",
       "  ",
-      "  $0",
+      "  bindActor() {",
+      "     return [$0]",
+      "  }",
       "}"
     ]
   },
@@ -49,17 +49,8 @@
   "ql": {
     "prefix": "ql",
     "body": [
-      "const ${1:name} = QL('${2:name}', [",
-      "  ${3}",
-      "])"
-    ]
-  },
-  //DQL
-  "dql": {
-    "prefix": "dql",
-    "body": [
-      "const ${1:name} = DQL('${2:name}', [",
-      "  $3",
+      "const ${1:name} = QL('${1:name}', [",
+      "  $2",
       "])"
     ]
   },
@@ -72,7 +63,7 @@
       "import AppStore from './store'",
       "",
       "@StoreProvider(AppStore)",
-      "export default class ${1:AppName} extends React.Component<any, any> {",
+      "export default class $1 extends React.Component<any, any> {",
       "  render() {",
       "    return (",
       "      $0",
@@ -87,17 +78,18 @@
       "import * as React from 'react'",
       "import {Relax} from 'plume2'",
       "",
-      "interface IProps {",
-      "  $1",
-      "}",
       "@Relax",
-      "export default class ${2:name} extends React.Component<IProps, any> {",
-      "  static defaultProps = {",
-      "    $3",
+      "export default class $1 extends React.Component<any, any> {",
+      "  props: {",
+      "    relaxProps?: {",
+      "    }",
+      "  };",
+      "  static relaxProps = {",
+      "    $2",
       "  }",
       "  render() {",
       "    return (",
-      "      $0",
+      "      $3",
       "    )",
       "  }",
       "}"
@@ -108,10 +100,10 @@
     "body": [
       "import * as React from 'react'",
       "",
-      "export default class ${1:name} extends PureComponent<any, any> {",
+      "export default class $1 extends PureComponent<any, any> {",
       "  render() {",
       "   return (",
-      "     $0",
+      "     $2",
       "   )",
       "  }",
       "}"
@@ -152,8 +144,8 @@
   "action": {
     "prefix": "action",
     "body": [
-      "@Action(${1:msg})",
-      "$(2:methodName)(state: IMap, ${3:param}) {",
+      "@Action('${1:name}')",
+      "${1:name}(state: IMap) {",
       "  return state$0",
       "}"
     ]
