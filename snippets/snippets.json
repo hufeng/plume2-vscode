@@ -58,12 +58,12 @@
   "StoreProvider": {
     "prefix": "spd",
     "body": [
-      "import * as React from 'react'",
+      "import React, { Component } from 'react'",
       "import {StoreProvider} from 'plume2'",
       "import AppStore from './store'",
       "",
       "@StoreProvider(AppStore)",
-      "export default class $1 extends React.Component<any, any> {",
+      "export default class $1 extends Component<any, any> {",
       "  render() {",
       "    return (",
       "      $0",
@@ -75,11 +75,11 @@
   "relax": {
     "prefix": "relax",
     "body": [
-      "import * as React from 'react'",
+      "import React, { Component } from 'react'",
       "import {Relax} from 'plume2'",
       "",
       "@Relax",
-      "export default class $1 extends React.Component<any, any> {",
+      "export default class $1 extends Component<any, any> {",
       "  props: {",
       "    relaxProps?: {",
       "    }",
@@ -98,7 +98,7 @@
   "PureComponent": {
     "prefix": "pure",
     "body": [
-      "import * as React from 'react'",
+      "import {PureComponent} from 'react'",
       "",
       "export default class $1 extends PureComponent<any, any> {",
       "  render() {",
