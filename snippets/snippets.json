@@ -7,8 +7,7 @@
   "Print to console": {
     "prefix": "log",
     "body": [
-      "console.log('$1');",
-      "$2"
+      "console.log('$1');"
     ],
     "description": "Log output to console"
   },
@@ -22,6 +21,15 @@
       "  defaultState() {",
       "    return {$2}",
       "  }",
+      "}"
+    ]
+  },
+  "action": {
+    "prefix": "action",
+    "body": [
+      "@Action('${1:name}')",
+      "${1:name}(state: IMap) {",
+      "  return state$0",
       "}"
     ]
   },
@@ -45,6 +53,13 @@
       "}"
     ]
   },
+  //import ql 
+  "iql": {
+    "prefix": "iql",
+    "body": [
+      "import {QL} from 'plume2'"
+    ]
+  },
   //QL
   "ql": {
     "prefix": "ql",
@@ -58,12 +73,12 @@
   "StoreProvider": {
     "prefix": "spd",
     "body": [
-      "import React, { Component } from 'react'",
+      "import React from 'react'",
       "import {StoreProvider} from 'plume2'",
       "import AppStore from './store'",
       "",
       "@StoreProvider(AppStore)",
-      "export default class $1 extends Component<any, any> {",
+      "export default class $1 extends React.Component<any, any> {",
       "  render() {",
       "    return (",
       "      $0",
@@ -75,18 +90,21 @@
   "relax": {
     "prefix": "relax",
     "body": [
-      "import React, { Component } from 'react'",
+      "import React from 'react'",
       "import {Relax} from 'plume2'",
       "",
       "@Relax",
-      "export default class $1 extends Component<any, any> {",
+      "export default class $1 extends React.Component<any, any> {",
       "  props: {",
       "    relaxProps?: {",
+      "     $0",
       "    }",
       "  };",
+      "",
       "  static relaxProps = {",
       "    $2",
-      "  }",
+      "  };",
+      "",
       "  render() {",
       "    return (",
       "      $3",
@@ -95,12 +113,18 @@
       "}"
     ]
   },
+  "relaxProps": {
+    "prefix": "rp",
+    "body": [
+      "const {$1} = this.props.relaxProps"
+    ]
+  },
   "PureComponent": {
     "prefix": "pure",
     "body": [
-      "import {PureComponent} from 'react'",
+      "import React from 'react'",
       "",
-      "export default class $1 extends PureComponent<any, any> {",
+      "export default class $1 extends React.PureComponent<any, any> {",
       "  render() {",
       "   return (",
       "     $2",
@@ -109,6 +133,22 @@
       "}"
     ]
   },
+  "Component": {
+    "prefix": "cmp",
+    "body": [
+      "import React from 'react'",
+      "",
+      "export default class $1 extends React.Component<any, any> {",
+      "",
+      "  render() {",
+      "   return (",
+      "     $2",
+      "   )",
+      "  }",
+      "}"
+    ]
+  },
+  //=================React life-cycle=========================
   "componentWillReceiceProps": {
     "prefix": "cwrp",
     "body": [
@@ -125,6 +165,14 @@
       "}"
     ]
   },
+  "componentWillMount": {
+    "prefix": "cwm",
+    "body": [
+      "componentWillMount() {",
+      "  $0",
+      "}"
+    ]
+  },
   "componentDidUpdate": {
     "prefix": "cdu",
     "body": [
@@ -133,20 +181,27 @@
       "}"
     ]
   },
-  "shouldComponentUpdate": {
-    "prefix": "scu",
+  "componentWillUpdate": {
+    "prefix": "cwu",
     "body": [
-      "shouldComponentUpdate(nextProps: Object, nextState: Object) {",
+      "componentWillUpdate() {",
       "  $0",
       "}"
     ]
   },
-  "action": {
-    "prefix": "action",
+  "componentWillUnmout": {
+    "prefix": "cwum",
     "body": [
-      "@Action('${1:name}')",
-      "${1:name}(state: IMap) {",
-      "  return state$0",
+      "componentWillUnmount() {",
+      "  $0",
+      "}"
+    ]
+  },
+  "shouldComponentUpdate": {
+    "prefix": "scu",
+    "body": [
+      "shouldComponentUpdate(nextProps, nextState) {",
+      "  $0",
       "}"
     ]
   }
