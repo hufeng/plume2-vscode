@@ -1,7 +1,7 @@
 {
   "name": "plume2-vscode",
   "description": "plume2 snippet for vscode",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "displayName": "plume2 code snippets",
   "publisher": "hufeng",
   "icon": "images/tea.png",
@@ -16,9 +16,7 @@
   "engines": {
     "vscode": "0.10.x"
   },
-  "categories": [
-    "Snippets"
-  ],
+  "categories": ["Snippets"],
   "contributes": {
     "snippets": [
       {

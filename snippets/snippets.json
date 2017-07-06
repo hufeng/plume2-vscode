@@ -28,7 +28,7 @@
     "prefix": "action",
     "body": [
       "@Action('${1:name}')",
-      "${1:name}(state: IMap) {",
+      "${2:actionName}(state: IMap) {",
       "  return state$0",
       "}"
     ]
@@ -78,7 +78,7 @@
       "import AppStore from './store'",
       "",
       "@StoreProvider(AppStore)",
-      "export default class $1 extends React.Component<any, any> {",
+      "export default class $1 extends React.Component {",
       "  render() {",
       "    return (",
       "      $0",
@@ -94,7 +94,7 @@
       "import {Relax} from 'plume2'",
       "",
       "@Relax",
-      "export default class $1 extends React.Component<any, any> {",
+      "export default class $1 extends React.Component {",
       "  props: {",
       "    relaxProps?: {",
       "     $0",
@@ -124,7 +124,7 @@
     "body": [
       "import React from 'react'",
       "",
-      "export default class $1 extends React.PureComponent<any, any> {",
+      "export default class $1 extends React.PureComponent {",
       "  render() {",
       "   return (",
       "     $2",
@@ -138,7 +138,7 @@
     "body": [
       "import React from 'react'",
       "",
-      "export default class $1 extends React.Component<any, any> {",
+      "export default class $1 extends React.Component {",
       "",
       "  render() {",
       "   return (",
